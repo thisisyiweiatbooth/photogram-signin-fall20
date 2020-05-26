@@ -42,7 +42,4 @@ Rails.application.routes.draw do
 
   get("/delete_comment/:the_comment_id", { :controller => "comments", :action => "destroy"})
 
-  # ===============Route for Admin Dashboard========================
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
 end

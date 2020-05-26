@@ -1,4 +1,4 @@
-image: jelaniwoods/appdev-winter-20-photogram-signin
+image: jelaniwoods/appdev2020-photogram-signin
 
 tasks:
   - init: bin/setup
