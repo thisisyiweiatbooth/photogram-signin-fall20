@@ -20,14 +20,14 @@ describe "/photos - Create photo form" do
     within(:css, "form") do
       fill_in "Username", with: first_user.username
       fill_in "Password", with: first_user.password
-      click_on "Sign in"
+      find("button", :text => /Sign in/i ).click
     end
     
     visit "/photos"
     within(:css, "form") do
       fill_in "Image", with: "https://some.test/image-#{Time.now.to_i}.jpg"
       fill_in "Caption", with: new_caption
-      click_on "Add photo"
+      find("button", :text => /Add photo/i ).click
     end
     
 
@@ -59,7 +59,7 @@ describe "/photos/[ID] - Update photo form" do
     within(:css, "form") do
       fill_in "Username", with: bob.username
       fill_in "Password", with: bob.password
-      click_on "Sign in"
+      find("button", :text => /Sign in/i ).click
     end
     
     visit "/photos/#{photo.id}"
@@ -89,7 +89,7 @@ describe "/photos/[ID] - Update photo form" do
     within(:css, "form") do
       fill_in "Username", with: first_user.username
       fill_in "Password", with: first_user.password
-      click_on "Sign in"
+      find("button", :text => /Sign in/i ).click
     end
     
     visit "/photos/#{photo.id}"
@@ -120,7 +120,7 @@ describe "/photos/[ID] - Delete this photo button" do
     within(:css, "form") do
       fill_in "Username", with: first_user.username
       fill_in "Password", with: first_user.password
-      click_on "Sign in"
+      find("button", :text => /Sign in/i ).click
     end
     
     visit "/photos/#{photo.id}"
@@ -152,7 +152,7 @@ describe "/photos/[ID] — Add comment form" do
     within(:css, "form") do
       fill_in "Username", with: first_user.username
       fill_in "Password", with: first_user.password
-      click_on "Sign in"
+      find("button", :text => /Sign in/i ).click
     end
 
     test_comment = "Hey, what a nice app you're building!"
@@ -161,7 +161,7 @@ describe "/photos/[ID] — Add comment form" do
 
     fill_in "Comment", with: test_comment
 
-    click_on "Add comment"
+    find("button", :text => /Add comment/i ).click
 
     added_comment = Comment.where({ :author_id => first_user.id, :photo_id => photo.id, :body => test_comment }).at(0)
 
