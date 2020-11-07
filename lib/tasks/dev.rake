@@ -1,5 +1,5 @@
-desc "Fill the database tables with some dummy data"
-task({ :dummy_data => :environment}) do
+desc "Fill the database tables with some sample data"
+task({ :sample_data => :environment}) do
   starting = Time.now
 
   if Rails.env.production?
